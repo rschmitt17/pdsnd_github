@@ -12,8 +12,13 @@ def month_filter():
     """
     Asks user to specify a month to analyze.
 
+    Takes a user input of a month name to filter data, while checking for correct user input.
+
+    Args:
+        none, no arguments are passed to this function as it prompts user for input.
+
     Returns:
-        (str) month - name of the month to filter by, or "all" to apply no month filter
+        (str) month - name of the month to filter by, or "all" to apply no month filter.
     """
     month_dict = { 'jan': 'january',
                    'feb': 'february',
@@ -41,6 +46,11 @@ def month_filter():
 def day_filter():
     """
     Asks user to specify a day to analyze.
+
+    Takes a user input of a day name to filter data, while checking for correct user input.
+
+    Args:
+        none, no arguments are passed to this function as it prompts user for input.
 
     Returns:
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
@@ -72,6 +82,9 @@ def day_filter():
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
+
+    Args:
+        none, no arguments are passed to this function as it prompts user for input.
 
     Returns:
         (str) city - name of the city to analyze
@@ -105,6 +118,7 @@ def get_filters():
         except:
             print("Invalid input, please try another filter.")
     
+    #depending on how user wants to filter data, calls one or both of month_filter() and day_filter() function(s).
     if how_to_filter == "b":
         month = month_filter()
         day = day_filter()
