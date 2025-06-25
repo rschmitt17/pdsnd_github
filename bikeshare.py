@@ -31,9 +31,9 @@ def month_filter():
     while True:
         month_input = input("\nPlease enter a month to analyze (at least the first 3 letters are necessary i.e. Jan, Feb, etc.):\n").lower()
         try:
-            month_three = month_input[:3]
-            if month_three in month_dict:
-                month = month_dict[month_three]
+           # month_three = month_input[:3]
+            if month_input[:3] in month_dict:
+                month = month_dict[month_input[:3]]
                 break
             else:
                 print("Sorry only the first 6 months of data are available for the year. Please enter a different month.")
@@ -67,9 +67,9 @@ def day_filter():
     while True:
         day_input = input("\nPlease enter a day of the week to analyze (at least the first 3 letter):\n").lower()
         try:
-            day_three = day_input[:3]
-            if day_three in day_dict:
-                day = day_dict[day_three]
+            #day_three = day_input[:3]
+            if day_input[:3] in day_dict:
+                day = day_dict[day_input[:3]]
                 break
             else:
                 print("Invalid day of the week. Please try again.")
@@ -110,22 +110,21 @@ def get_filters():
     while True:
         filter_input = input("\nWould you like to filter the data by month, day, both, or not at all? Enter 'none' for no filters.\n").lower()
         try:
-            how_to_filter = filter_input[:1]
-            if how_to_filter in ["m","d","b","n"]:
+            #how_to_filter = filter_input[:1]
+            if filter_input[:1] in ["m","d","b","n"]:
                 break
             else:
                 print("Invalid input, please enter another filter.")
         except:
             print("Invalid input, please try another filter.")
     
-    #depending on how user wants to filter data, calls one or both of month_filter() and day_filter() function(s).
-    if how_to_filter == "b":
+    if filter_input[:1] == "b":
         month = month_filter()
         day = day_filter()
-    elif how_to_filter == "m":
+    elif filter_input[:1] == "m":
         month = month_filter()
         day = "all"
-    elif how_to_filter == "d":
+    elif filter_input[:1] == "d":
         month = "all"
         day = day_filter()
     else:
@@ -367,10 +366,21 @@ def main():
         city, month, day = get_filters()
         df = load_data(city, month, day)
 
-        time_stats(df)
-        station_stats(df)
-        trip_duration_stats(df)
-        user_stats(df, city)
+        view_time_stats = input("\nPress Enter to see statistics on months, days, and times, or 's' to skip: ")
+        if view_time_stats == '':
+            time_stats(df)
+
+        view_station_stats = input("\nPress Enter to see statistics on start and end stations, or 's' to skip: ")
+        if view_station_stats == '':
+            station_stats(df)
+
+        view_duration_stats = input("\nPress Enter to see statistics on trip durations, or 's' to skip: ")
+        if view_duration_stats == '':   
+            trip_duration_stats(df)
+
+        view_user_stats = input("\nPress Enter to see statistics on users, or 's' to skip: ")
+        if view_user_stats == '':
+            user_stats(df, city)
 
         raw_data = input('\nWould you like to see the raw trip data? Enter yes or no.\n')
         if raw_data.lower() == 'yes':
