@@ -325,10 +325,21 @@ def main():
         city, month, day = get_filters()
         df = load_data(city, month, day)
 
-        time_stats(df)
-        station_stats(df)
-        trip_duration_stats(df)
-        user_stats(df, city)
+        view_time_stats = input("\nPress Enter to see statistics on months, days, and times, or 's' to skip: ")
+        if view_time_stats == '':
+            time_stats(df)
+
+        view_station_stats = input("\nPress Enter to see statistics on start and end stations, or 's' to skip: ")
+        if view_station_stats == '':
+            station_stats(df)
+
+        view_duration_stats = input("\nPress Enter to see statistics on trip durations, or 's' to skip: ")
+        if view_duration_stats == '':   
+            trip_duration_stats(df)
+
+        view_user_stats = input("\nPress Enter to see statistics on users, or 's' to skip: ")
+        if view_user_stats == '':
+            user_stats(df, city)
 
         raw_data = input('\nWould you like to see the raw trip data? Enter yes or no.\n')
         if raw_data.lower() == 'yes':
