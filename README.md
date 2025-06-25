@@ -19,6 +19,13 @@ There are also three CSV data files needed to be able to execute the program, ho
 * new_york_city.csv
 * washington.csv
 
-## Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+## Credits and References
+The following websites were used as references in developing the code:
+
+* [Pandas Reference Guide](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.day_name.html#pandas.Series.dt.day_name)
+* [Datetime Reference Guide](https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.hour.html)
+* [Calendar Reference Guide](https://docs.python.org/3/library/calendar.html)
+* https://www.geeksforgeeks.org/python/python-program-to-convert-seconds-into-hours-minutes-and-seconds/
+* https://www.freecodecamp.org/news/how-to-iterate-over-rows-with-pandas-loop-through-a-dataframe/
+* https://stackoverflow.com/questions/43772362/how-to-print-a-specific-row-of-a-pandas-dataframe#:~:text=To%20print%20a%20specific%20row%2C%20we%20have%20couple%20of%20pandas,CK%20Chen
 
