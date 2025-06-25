@@ -26,9 +26,9 @@ def month_filter():
     while True:
         month_input = input("\nPlease enter a month to analyze (at least the first 3 letters are necessary i.e. Jan, Feb, etc.):\n").lower()
         try:
-            month_three = month_input[:3]
-            if month_three in month_dict:
-                month = month_dict[month_three]
+           # month_three = month_input[:3]
+            if month_input[:3] in month_dict:
+                month = month_dict[month_input[:3]]
                 break
             else:
                 print("Sorry only the first 6 months of data are available for the year. Please enter a different month.")
@@ -57,9 +57,9 @@ def day_filter():
     while True:
         day_input = input("\nPlease enter a day of the week to analyze (at least the first 3 letter):\n").lower()
         try:
-            day_three = day_input[:3]
-            if day_three in day_dict:
-                day = day_dict[day_three]
+            #day_three = day_input[:3]
+            if day_input[:3] in day_dict:
+                day = day_dict[day_input[:3]]
                 break
             else:
                 print("Invalid day of the week. Please try again.")
@@ -97,21 +97,21 @@ def get_filters():
     while True:
         filter_input = input("\nWould you like to filter the data by month, day, both, or not at all? Enter 'none' for no filters.\n").lower()
         try:
-            how_to_filter = filter_input[:1]
-            if how_to_filter in ["m","d","b","n"]:
+            #how_to_filter = filter_input[:1]
+            if filter_input[:1] in ["m","d","b","n"]:
                 break
             else:
                 print("Invalid input, please enter another filter.")
         except:
             print("Invalid input, please try another filter.")
     
-    if how_to_filter == "b":
+    if filter_input[:1] == "b":
         month = month_filter()
         day = day_filter()
-    elif how_to_filter == "m":
+    elif filter_input[:1] == "m":
         month = month_filter()
         day = "all"
-    elif how_to_filter == "d":
+    elif filter_input[:1] == "d":
         month = "all"
         day = day_filter()
     else:
