@@ -19,6 +19,9 @@ There are also three CSV data files needed to be able to execute the program, ho
 * new_york_city.csv
 * washington.csv
 
+## Packages
+The `spec-file.txt` file has been to the repository which details all the packages that have been installed in order to execute the program.
+
 ## Credits and References
 The following websites were used as references in developing the code:
 
